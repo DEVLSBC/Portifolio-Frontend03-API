@@ -1,3 +1,103 @@
+/* Fonte */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {    
+    /* Paleta de cores */
+    --cor-principal: #5647ff;
+    --cor-01: #f9f9f9;
+    --cor-02: #f5f8fa;
+    --cor-03: #cbd6e2;
+    --cor-04: #9caaba;
+    --cor-05: #232323;
+
+    /* Fonte */
+    --fonte-principal: 'Montserrat', sans-serif;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: bisque;
+    background-color: var(--cor-03);
+    color: var(--cor-05);
+
+    width: 90vw;
+    margin: 2rem auto;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 1rem 0;
+}
+
+main {
+    width: 30rem;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--cor-01);
+    border: solid 1px var(--cor-04);
+    border-radius: 0.5rem;
+}
+
+hr {
+    margin: 1rem 0 2rem;
+    border: none;
+    border-bottom: solid 1px var(--cor-03);
+}
+
+input {
+    background-color: var(--cor-02);
+    border: solid 1px var(--cor-03);
+    border-radius: 0.2rem;
+    padding: 0.2rem 0.5rem;
+    margin: 0.2rem 0;
+    width: 100%;
+    font-family: var(--fonte-principal);
+    font-size: 1rem;
+    min-height: 2rem;
+    height: 100%;
+    outline: var(--cor-04);
+}
+
+button {
+    color: var(--cor-02);
+    background-color: var(--cor-principal);
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.2rem 1rem;
+    min-height: 2rem;
+    height: 100%;
+    font-family: var(--fonte-principal);
+    font-size: 1rem;
+    transition: all 0.5s ease;
+}
+
+button:hover {
+    cursor: pointer;
+    color: var(--cor-05);
+    background-color: var(--cor-03);
+}
+
+
+
+/* ===== Classes ===== */
+.informa-cep {
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dados input {
+    margin-bottom: 1rem;
 }

@@ -7,7 +7,45 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Consumo da API ViaCEP</h1>
+    <main>
+        <h3>Consumo da API ViaCEP</h1>
+
+        <form id="formularioCEP">
+            <div class="informa-cep">
+                <label for="cep">Informe o CEP</label>
+                <input type="text" id="cep">
+                <button type="submit">Pesquisar</button>
+            </div>
+            <hr>
+
+            <div class="dados">
+                <!-- readonly ou disabled -->
+                <label for="logradouro">Logradouro</label>
+                <input type="text" id="logradouro" disabled>
+
+                <label for="bairro">Bairro</label>
+                <input type="text" id="bairro" disabled>
+
+                <label for="localidade">Cidade</label>
+                <input type="text" id="localidade" disabled>
+                
+                <label for="estado">Estado</label>
+                <input type="text" id="estado" disabled>
+
+                <label for="regiao">Região</label>
+                <input type="text" id="regiao" disabled>
+
+                <label for="numero">Número</label>
+                <input type="text" id="numero">
+
+                <label for="complemento">Complemento</label>
+                <input type="text" id="complemento">
+            </div>
+            <!-- Botão de Enviar -->
+            <button type="button">Enviar</button>
+        </form>
+
+    </main>
 </body>
 <script src="js/app.js"></script>
 </html>
