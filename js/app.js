@@ -1,57 +1,57 @@
-// Carrega o formulário
+  // Carrega o formulário
 
 const formularioCEP = document.querySelector("#formularioCEP");
 
-// Mensagem de ERRO
+  // Mensagem de ERRO
 const mensagemErro = "CEP invalido!";
 
 
-// Ao carregar a página, coloca o foco do cursor no campo CEP
+  // Ao carregar a página, coloca o foco do cursor no campo CEP
 
 window.onload = () => {
     colocarFoco(formularioCEP.cep);
 };
 
-// Cria um evento de submit/envio do formulario
+  // Cria um evento de submit/envio do formulario
 
 formularioCEP.addEventListener('submit', (evento) => {
-    // Previne o comportamento padrão do submit
+      // Previne o comportamento padrão do submit
     evento.preventDefault();
 
-    // Obtem o CEP informado pelo usuário
+      // Obtem o CEP informado pelo usuário
     const cep = formularioCEP.cep.value;
 
-    // Verifica se o CEP informado possui 8 digitos
+      // Verifica se o CEP informado possui 8 digitos
     if(cep.length !== 8){
         limparTodosCampos();
         mostrarMensagem(mensagemErro);
         colocarFoco(formularioCEP.cep);
-        return; // Early return(retorno antecipado)
+        return;  // Early return(retorno antecipado)
     }
 
-    // Chama a function para buscar o CEP na API ViaCEP
+      // Chama a function para buscar o CEP na API ViaCEP
     buscarCEP(cep);
 })
 
 
 function buscarCEP(cep) {
-    // URL da API ViaCEP
+      // URL da API ViaCEP
     const url = `https://viacep.com.br/ws/${cep}/json/`;
 
-    // Faz a solicitação HTTP para a API ViaCEP
+      // Faz a solicitação HTTP para a API ViaCEP
     fetch(url)
-        // Se tiver sucesso, converte os dados em JSON
+          // Se tiver sucesso, converte os dados em JSON
         .then(response => response.json())
 
-        // Exibe os dados no formulario
+          // Exibe os dados no formulario
         .then(dados => {
-            //Verifica se o CEP foi encontrado
+              //Verifica se o CEP foi encontrado
             if(!dados.erro){
                 formularioCEP.logradouro.value = dados.logradouro;
-                formularioCEP.bairro.value = dados.bairro;
+                formularioCEP.bairro.value     = dados.bairro;
                 formularioCEP.localidade.value = dados.localidade;
-                formularioCEP.estado.value = dados.estado;
-                formularioCEP.regiao.value = dados.regiao;
+                formularioCEP.estado.value     = dados.estado;
+                formularioCEP.regiao.value     = dados.regiao;
             }
             else{
                 limparTodosCampos();
@@ -62,12 +62,12 @@ function buscarCEP(cep) {
 
         limparCEP();
 
-        //Coloca o foco no campo Numero
+          //Coloca o foco no campo Numero
         colocarFoco(formularioCEP.numero);
 }
 
 
-// ======= functions auxiliares =======
+  // ======= functions auxiliares =======
 
 function colocarFoco(campo){
     campo.focus();
